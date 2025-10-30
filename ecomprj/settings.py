@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-%o9!c3rf02q6usr!vw^s96^t*(dsv&ezbs)_u_k7^z1oa$ik0r
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -141,6 +140,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -158,15 +162,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 JAZZMIN_SETTINGS = {
-    'site_header': "Desphixs Shop",
+    'site_header': "Lwam Shop",
     'site_brand': "You order, we deliver",
     'site_logo': "assets/imgs/theme/loading.gif",
-    'copyright': "desphixs-shop.com",
+    'copyright': "lwam-shop.com",
 }
 
-LOGIN_URL = "userauths:sign-in"
+LOGIN_URL = "userauths:sign-up"
 LOGIN_REDIRECT_URL = "core:index"
-LOGOUT_REDIRECT_URL = "userauths:sign-in"
+LOGOUT_REDIRECT_URL = "userauths:sign-up"
 
 AUTH_USER_MODEL = 'userauths.User'
 
